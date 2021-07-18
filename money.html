@@ -5,7 +5,6 @@
 		<title>网上银行-个人存款计算器</title>
 		 <!-- 新 Bootstrap 核心 CSS 文件 -->
         <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
- 
         <!-- jQuery文件务必在bootstrap.min.js 之前引入 -->
         <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
@@ -13,35 +12,25 @@
 	<script>
 		//定义一个函数，完成存款的计算
 		function calc(){
-			//1.获取存款金额，读取文本框里的数值
+			//1.1获取存款金额，读取文本框里的数值
 			var cunkaunjine = document.getElementById("amount").value;
 			//上面取到的值是：“8000”，带双引号“8000”需要变成8000
 			var cunkaunnum=parseInt(cunkaunjine);
+			//1.2获取存款时间，读取时间文本框里的数值
+			var time = document.getElementById("cunkuantime").value;
+			var timenum = parseInt(time);
 			//2.开始计算
 			//取得存款年限
 			var lilv = document.getElementById("year").value;
 			//var lilvnum = ParserInt(lilv);//只有文本框需要转换
-			var lixi = lilv*cunkaunnum;
+			var lixi = lilv*cunkaunnum*timenum;
 			var total = cunkaunnum+lixi;
 			//3.把相应的结果写入相应的文本框
 			document.getElementById("lixi").value=lixi;
 			document.getElementById("total").value=total;
 			//4.
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-	</script>
-	
-	
-	
-	
-	
+       </script>
 	</head>
 	<body>
 		<div class="container text-center">
@@ -55,6 +44,10 @@
 				<td>
 					<input class="form-control" type="text" placeholder="请输入存款金额" id="amount" />
 				</td>
+			</tr>
+			<tr>
+				<td>存款时间（年）</td>
+				<td><input class="form-control" type="text" placeholder="请输入存款时间" id="cunkuantime"/></td>
 			</tr>
 			<tr>
 				<td>存款年限</td>
